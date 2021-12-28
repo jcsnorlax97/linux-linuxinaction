@@ -7,6 +7,7 @@
   - [2. Linux Basics](#2-linux-basics)
     - [2.1. UNIX Filesystem Hierarchy Standard](#21-unix-filesystem-hierarchy-standard)
     - [2.2. Navigation Commands](#22-navigation-commands)
+    - [2.3. File Management Commands](#23-file-management-commands)
 
 ## 1. Hello Linux!
 
@@ -96,3 +97,49 @@
     - A relative path is a path that is relative to your current directory location.
   - **Absolute Path**
     - An absolute path is a path that begins with the root directory (represented by a forward slash). For example, `/home` is an absolute path.
+
+### 2.3. File Management Commands
+
+- List the commands to create, destroy, move and copy a file.
+  - `touch <args>`: to create a new file.
+  - `rm <args>`: to remove a file.
+  - `mv <args>`: to move a file from one directory to another directory.
+  - `cp <args>`: to make a copy of a file.
+
+- Describe the difference in between `cp file1 dir1` and `cp file1 dir2`, where `dir1` does not exist and `dir2` exists.
+  - For `cp file1 dir1`, since the destination directory (`dir1`) does not exist, the destination directory argument would be used as the **filename** of the copy of `file1`. As a result, if `file1` is located in `./` directory, a new copy of `file1` would be created in the same directory, i.e. `./`. And this copy is named as `dir1`.
+  - For `cp file1 dir2`, since the destination directory (`dir2`) exists, a copy of `file1` would be created inside `dir2`. This new copy will be having the same filename (`file1`).
+
+- List the commands to create, destroy, move and copy a directory.
+  - `mkdir <args>`: to create a directory.
+  - `rmdir <args>`: to remove an empty directory.
+  - `rm -r <args>`: to remove a directory, regardless it's empty or not.
+  - `mv <args>`: to move a directory from one directory to another directory, regardless it's empty or not.
+  - `cp -r <args>`: to make a copy of a directory, regardless it's empty or not.
+
+- Briefly describe the two common wildcard characters (`*` and `?`) used for Linux file globbing. 
+  - Asterisk (`*`) wildcard: this is interpreted as **zero or more characters**, i.e. a number of literal characters or an empty string.
+  - Question mark (`?`) wildcard: this is interpreted as **exactly one character**.
+
+- Briefly describe what `mv * /directories/dir1`, `mv file* /directories/dir1`, and `mv file? /directories/dir1` do.
+  - `mv * /directories/dir1`: to move all contents of the current directory to `/directories/dir1`.
+  - `mv file* /directories/dir1`: to move all contents of the current directory, starting with `file`, to `/directories/dir1`.
+  - `mv file? /directories/dir1`: to move all contents of the current directory, starting with `file` followed by exactly one additonal character, to `/directories/dir1`. 
+
+- Which command can we use to display inode information of a Linux file system object? For example, how do we display inode information of `file1` (a file) or `dir1` (a directory)?
+  - `stat`
+  - `stat file1`
+  - `stat dir1`
+
+- List the three categories of text editors.
+  - Plain-text editor, e.g. gedit (or "the Text Editor" in Ubuntu), which allows us to work on documents from the GUI environment.
+  - Command-line editor, e.g. nano or Pico, which allows us to edit a file from inside a terminal session.
+  - **Vim**
+
+- Describe the following terminologies.
+  - **Inode**: 
+    - An inode is an object used by UNIX systems to identify the **disk location** and **attributes of files** within a file system.
+    - Usually there'll be exactly one inode for each file or directory.
+    - When we are moving, copying, or deleting a file or directory, what we're actually doing is editing its inode attributes.
+  - **File Globbing**:
+    - File globbing involves using **wildcard characters** to refer to multiple files with a single command.

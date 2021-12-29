@@ -8,6 +8,12 @@
     - [2.1. UNIX Filesystem Hierarchy Standard](#21-unix-filesystem-hierarchy-standard)
     - [2.2. Navigation Commands](#22-navigation-commands)
     - [2.3. File Management Commands](#23-file-management-commands)
+    - [2.4. Keyboard Tricks](#24-keyboard-tricks)
+    - [2.5. Pseudo File Systems](#25-pseudo-file-systems)
+    - [2.6. `sudo` command](#26-sudo-command)
+  - [3. Getting Help](#3-getting-help)
+    - [3.1. `man` command](#31-man-command)
+    - [3.2. `info` command](#32-info-command)
 
 ## 1. Hello Linux!
 
@@ -143,3 +149,73 @@
     - When we are moving, copying, or deleting a file or directory, what we're actually doing is editing its inode attributes.
   - **File Globbing**:
     - File globbing involves using **wildcard characters** to refer to multiple files with a single command.
+
+### 2.4. Keyboard Tricks
+
+- Briefly describe how to do copying & pasting in a Bash shell session in a Linux Terminal.
+  - Copy: Copying can be done by the `Shift + Ctrl + C` command. Note that `Ctrl + C` WON'T work!
+  - Paste: Pasting can be done by the `Shift + Ctrl + V` command. Note that `Ctrl + V` WON'T work!
+
+- Describe the following terminologies.
+  - **Tab completion**:
+    - Tab completion employs the `Tab` key to suggest possible completions of a partially typed command.
+
+### 2.5. Pseudo File Systems
+
+- Briefly describe where block devices can be found in Linux.
+  - In Linux, all attached storages are organized as **block devices**.
+  - All the currently available block devices can be found in the `/sys/block/` directory.
+
+- Briefly describe what `/dev/sda`, `/dev/sdb`, `/dev/sdc`, `/dev/hda`, `/dev/sr0`, `/dev/cdrom`, and `/dev/fd0` refer to.
+  - `/dev/sda`: contents within the **first storage device (SCSI Device A)** on a system. 
+  - `/dev/sdb`: contents within the **second storage device (SCSI Device B)** on a system.
+  - `/dev/sdc`: contents within the **third storage device (SCSI Device C)** on a system.
+  - `/dev/hda`: contents within a **hard drive** on a system.
+  - `/dev/sr0`: contents within a **DVD drive** on a system.
+  - `/dev/cdrom`: contents within a **CD-ROM drive** on a system.
+  - `/dev/fd0`: contents within a **floppy drive** on a system.
+  - `/dev/loop0`: contents within a **loop device** on a system.
+
+- Describe the following terminologies.
+  - **Pseudo File Systems**:
+    - Pseudo file systems are **directories** containing files with dynamic data automatically generated at or after system boot.
+  - **Loop Device**:
+    - A loop device is a pseudo device that allows a file to be used as though it's an actual physical device.
+
+### 2.6. `sudo` command
+
+- Briefly describe what `sudo` command does.
+  - `sudo` command can be invoked by authorized users to gain administration permissions for individual commands.
+  - For example, `cat /etc/shadow` cannot be displayed without sudo powers. To display that, we need to type `sudo cat /etc/shadow` instead.
+  - By default, the user created during the initial Linux installation will haave `sudo` powers.
+
+- Throughout this book, what would the author use for (i) commands that don't require administrator and (ii) commands that do?
+  - `$` for commands that DON'T require administrator, for example `$ ls`.
+  - `#` for commands that DO require administrator, for example `# nano /etc/group`.
+
+## 3. Getting Help
+
+### 3.1. `man` command
+
+- Briefly describe what `man` command does.
+  - `man` command allows us to view the man file of a command.
+
+- Briefly describe how to launch search operations within man files.
+  - `/` key: to get a text entry field at the bottom of the screen where we can type our search pattern.
+  - `n` key: to search forward in the document for the same string until you find what you're looking for.
+
+- Describe the following terminologies.
+  - **Man file**:
+    - A man file is a highly structured documentation manual.
+    - When a Linux program is installed, its man file is nearly always installed with it and can be viewed from the command line by typing `man` followed by the command name, e.g. `man ls`. 
+
+### 3.2. `info` command
+
+- Briefly describe how to interact with the Info main menu.
+  - `Up` & `Down` arrow keys: to scroll between lines.
+  - `Enter` key: to move to the topic's page.
+  - `u` key: to take us back up one level.
+  - `q` key: to exit the Info main menu.
+
+- Briefly how to install `info` command on Linux server distributions.
+  - `sudo apt install info`

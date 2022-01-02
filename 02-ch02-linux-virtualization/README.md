@@ -3,11 +3,14 @@
 ## 0. Table of Contents
 - [Chapter 2. Linux virtualization: Building a Linux working environment](#chapter-2-linux-virtualization-building-a-linux-working-environment)
   - [0. Table of Contents](#0-table-of-contents)
-  - [1. What is virtualization?](#1-what-is-virtualization)
+  - [1. What is Virtualization?](#1-what-is-virtualization)
   - [2. Working with VirtualBox](#2-working-with-virtualbox)
     - [2.1. Working with Linux package managers](#21-working-with-linux-package-managers)
+    - [2.2. Defining a Virtual Machine (VM)](#22-defining-a-virtual-machine-vm)
+    - [2.3. Installing an Operating System (OS)](#23-installing-an-operating-system-os)
+    - [2.4. Cloning and Sharing a VirtualBox VM](#24-cloning-and-sharing-a-virtualbox-vm)
 
-## 1. What is virtualization?
+## 1. What is Virtualization?
 
 - Briefly describe the two approaches to virtualization mentioned in this chapter.
   - Hypervisors:
@@ -77,3 +80,34 @@
 - Describe the following terminologies.
   - **Software Repository**:
     - A software repository is a location where **digital resources can be stored**. Repositories are particularly useful for **collaboration** and **distribution of software packages**.
+
+### 2.2. Defining a Virtual Machine (VM)
+
+- Brief compare the differences between a dynamically allocated virtual drive and a fixed-size disk.
+  - Dynamically allocated virtual drive:
+    - A dynamically allocated virtual drive in VirtualBox takes up only as much space on your physical drives as the VM **actually uses**.
+  - Fixed-size disk:
+    - A fixed-size disk takes up the **maximum space** no matter how much data is there.
+    - The advantage of Fixed Size is **application performance**.
+
+### 2.3. Installing an Operating System (OS)
+
+- Briefly describe what else needs to be done after defining our new VM's virtual hardware profile.
+  1. To download a file (in **ISO format**) containing the **image of the Linux distribution** you want to use.
+  2. To **boot** the new VM using a **virtual DVD drive** containing the ISO you downloaded.
+  3. To work through the **standard OS installation process**.
+  4. To **boot** the VM and **launch the OS** you installed previously, which may require removing DVD from drive, like you would for a "real" physical installation.
+
+- Briefly describe how to validate the downloaded Ubuntu ISO by doing a checksum comparison.
+  - Expected ISO's Checksum:
+    - Based on [Ubuntu Releases - Ubuntu 20.04.3 LTS (Focal Fossa) - SHA256SUMS](https://cdimage.ubuntu.com/releases/20.04/release/SHA256SUMS), the ISO `ubuntu-20.04.3-live-server-arm64.iso` is having a checksum value of **`d6fea1f11b4d23b481a48198f51d9b08258a36f6024cb5cec447fe78379959ce`**.
+  - Downloaded ISO's Checksum:
+    ```bash
+    shasum -a 256 ubuntu-20.04.3-live-server-arm64.iso # Result should be `d6fea1f11b4d23b481a48198f51d9b08258a36f6024cb5cec447fe78379959ce` as well.
+    ```
+
+### 2.4. Cloning and Sharing a VirtualBox VM
+
+- List the two related tricks mentioned in this chapter.
+  1. To clone VMs for quick starts.
+  2. To use the command line to share VMs across a network. 
